@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "891959211631",
+    "project_id": "ustoz-shogird-3eee3",
+    "storage_bucket": "ustoz-shogird-3eee3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:891959211631:android:8a298ffa5b9eb869e93f9a",
+        "android_client_info": {
+          "package_name": "com.example.ustozshogird"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "891959211631-fh5ili5hjm9teesmahmkatbvhu2udpdr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSWIVJncmgYEvNjOLkHQISLWY1bXUh99g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "891959211631-fh5ili5hjm9teesmahmkatbvhu2udpdr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
