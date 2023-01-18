@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SignUpFragment">
+    tools:context=".view.SignUpFragment">
 
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -19,7 +19,7 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="1.3"
             android:orientation="vertical">
 
             <ImageView
@@ -29,7 +29,11 @@
                 android:layout_margin="10dp"
                 android:padding="8dp"
                 android:src="@drawable/ic_back" />
-
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ustoz" />
 
             <TextView
                 android:layout_width="wrap_content"

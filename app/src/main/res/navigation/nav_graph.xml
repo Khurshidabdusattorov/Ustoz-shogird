@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/introFragment"
-        android:name="com.example.ustozshogird.introduction.ViewPagerFragment"
+        android:name="com.example.ustozshogird.view.introduction.ViewPagerFragment"
         tools:layout="@layout/fragment_viewpager"
         android:label="IntroFragment" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/checkFragment"
-        android:name="com.example.ustozshogird.ui.CheckFragment"
+        android:name="com.example.ustozshogird.view.CheckFragment"
         android:label="fragment_check"
         tools:layout="@layout/fragment_check" >
         <action
@@ -28,24 +28,29 @@
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.ustozshogird.introduction.SplashFragment"
+        android:name="com.example.ustozshogird.view.introduction.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
             android:id="@+id/action_splashFragment_to_introFragment"
             app:destination="@id/introFragment"
             app:launchSingleTop="false"
-            app:popUpToInclusive="false" />
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_splashFragment_to_checkFragment"
             app:destination="@id/checkFragment"
             app:launchSingleTop="true"
-            app:popUpTo="@id/checkFragment"
+            app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_splashFragment_to_mainListFragment"
+            app:destination="@id/mainListFragment" />
     </fragment>
     <fragment
         android:id="@+id/registratsiyaFragment"
-        android:name="com.example.ustozshogird.ui.RegistratsiyaFragment"
+        android:name="com.example.ustozshogird.view.RegistrationFragment"
         android:label="fragment_registratsiya"
         tools:layout="@layout/fragment_registratsiya" >
         <action
@@ -57,12 +62,21 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.example.ustozshogird.ui.SignUpFragment"
+        android:name="com.example.ustozshogird.view.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" />
     <fragment
         android:id="@+id/mainListFragment"
-        android:name="com.example.ustozshogird.ui.MainListFragment"
+        android:name="com.example.ustozshogird.view.MainListFragment"
         android:label="fragment_main_list"
-        tools:layout="@layout/fragment_main_list" />
+        tools:layout="@layout/fragment_main_list" >
+        <action
+            android:id="@+id/action_mainListFragment_to_addFragment"
+            app:destination="@id/addFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.example.ustozshogird.view.AddFragment"
+        android:label="fragment_add"
+        tools:layout="@layout/fragment_add" />
 </navigation>

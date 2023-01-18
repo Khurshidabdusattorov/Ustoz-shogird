@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.RegistratsiyaFragment">
+    tools:context=".view.RegistrationFragment">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -12,8 +12,10 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -25,16 +27,21 @@
                 android:id="@+id/btn_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+               android:layout_margin="20dp"
                 android:padding="8dp"
                 android:src="@drawable/ic_back" />
 
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="5dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ustoz" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
                 android:text="Sign In"
                 android:textColor="#82CD47"
                 android:textSize="30sp"
@@ -57,6 +64,7 @@
                 android:textSize="20sp" />
 
             <EditText
+                android:id="@+id/number"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_margin="10dp"
@@ -82,12 +90,14 @@
                 android:layout_weight="1"
                 android:background="@drawable/rectangle"
                 android:hint="Enter password"
+                android:padding="5dp"
                 android:inputType="textPassword"
                 android:paddingHorizontal="10dp"
                 android:textSize="18sp"
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
@@ -119,6 +129,7 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/btn_SignIn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
@@ -130,7 +141,6 @@
                 app:cardUseCompatPadding="true">
 
                 <TextView
-                    android:id="@+id/btn_SignIn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
@@ -149,7 +159,7 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <TextView
-        android:id="@+id/signIn"
+        android:id="@+id/signUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="90dp"

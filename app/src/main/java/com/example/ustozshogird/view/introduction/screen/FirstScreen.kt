@@ -1,13 +1,13 @@
-package com.example.ustozshogird.ui
+package com.example.ustozshogird.view.introduction.screen
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import com.example.ustozshogird.R
-
-class MainListFragment : Fragment() {
+class FirstScreen(private val image:Int) : Fragment(){
 
 
     override fun onCreateView(
@@ -15,7 +15,8 @@ class MainListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main_list, container, false)
+        val view =  inflater.inflate(R.layout.screen_first, container, false)
+        view.findViewById<ImageView>(R.id.imageView).setImageResource(image)
+        return view
     }
-
 }

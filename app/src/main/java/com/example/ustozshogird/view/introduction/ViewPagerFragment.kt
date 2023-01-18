@@ -1,4 +1,4 @@
-package com.example.ustozshogird.introduction
+package com.example.ustozshogird.view.introduction
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.ustozshogird.R
-import com.example.ustozshogird.adapter.ViewPagerAdapter
-import com.example.ustozshogird.introduction.screen.FirstScreen
+import com.example.ustozshogird.view.adapter.ViewPagerAdapter
+import com.example.ustozshogird.view.introduction.screen.FirstScreen
 
 class ViewPagerFragment : Fragment() {
 

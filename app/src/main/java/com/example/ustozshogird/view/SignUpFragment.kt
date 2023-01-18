@@ -1,4 +1,4 @@
-package com.example.ustozshogird.ui
+package com.example.ustozshogird.view
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package com.example.ustozshogird.adapter
+package com.example.ustozshogird.view.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
