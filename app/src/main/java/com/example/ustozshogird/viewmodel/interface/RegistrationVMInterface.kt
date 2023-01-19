@@ -14,5 +14,6 @@ interface RegistrationVMInterface {
     val messageLiveData: LiveData<String>
 
     fun signInClicked(number: String, password: String)
-    fun signUpClicked(number: String, password: String)
+
+    fun signUpClicked()
 }

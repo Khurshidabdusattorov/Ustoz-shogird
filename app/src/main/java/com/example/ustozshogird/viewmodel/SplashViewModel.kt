@@ -10,36 +10,37 @@ import com.example.ustozshogird.viewmodel.`interface`.SplashVMInterface
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class SplashViewModel : ViewModel(),SplashVMInterface{
+class SplashViewModel : ViewModel(), SplashVMInterface {
     private val repositoryFirebase = RealtimeDBRepository()
     private val storage = SharedPreferenceRepository()
-    private val _openIntro=MutableLiveData<Unit>()
-    val openIntro :LiveData<Unit> = _openIntro
-    private val _openRegistration=MutableLiveData<Unit>()
-    val openRegistration :LiveData<Unit> = _openRegistration
-    private val _openMainList=MutableLiveData<String>()
-    val openMainList :LiveData<String> = _openMainList
+    private val _openIntro = MutableLiveData<Unit>()
+    val openIntro: LiveData<Unit> = _openIntro
+    private val _openRegistration = MutableLiveData<Unit>()
+    val openRegistration: LiveData<Unit> = _openRegistration
+    private val _openMainList = MutableLiveData<String>()
+    val openMainList: LiveData<String> = _openMainList
     override fun launch() {
         viewModelScope.launch {
-            delay(3000)
+            delay(500)
             isFirst()
         }
     }
 
     override fun isFirst() {
-        if (storage.isFirst){
+        if (storage.isFirst) {
             _openIntro.postValue(Unit)
             storage.isFirst = false
-        }else{
+        } else {
             isSignIn()
         }
     }
 
     override fun isSignIn() {
-        if (storage.number!=""){
-            _openMainList.postValue(storage.number)
-        }else{
-            _openRegistration.postValue(Unit)
-        }
+        _openRegistration.postValue(Unit)
+//        if (storage.number!=""){
+//            _openMainList.postValue(storage.number)
+//        }else{
+//            _openRegistration.postValue(Unit)
+//        }
     }
 }

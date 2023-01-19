@@ -13,8 +13,10 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -29,6 +31,7 @@
                 android:layout_margin="10dp"
                 android:padding="8dp"
                 android:src="@drawable/ic_back" />
+
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -40,9 +43,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
-                android:text="Sign In"
+                android:text="Sign Up"
                 android:textColor="#82CD47"
-                android:textSize="30sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -56,95 +59,99 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="24sp"
                 android:text="Name"
                 android:textColor="#4E4D4D"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/signInName"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="24sp"
                 android:background="@drawable/rectangle"
                 android:hint="Enter user name"
                 android:paddingHorizontal="10dp"
+                android:paddingStart="24sp"
                 android:textSize="18sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="24sp"
+                android:layout_marginTop="16dp"
                 android:text="Phone Number"
                 android:textColor="#4E4D4D"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/signInPhoneNUmber"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="24sp"
                 android:background="@drawable/rectangle"
-                android:hint="Enter user name"
+                android:hint="Enter phone number"
                 android:paddingHorizontal="10dp"
+                android:paddingStart="24sp"
                 android:textSize="18sp" />
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="24sp"
+                android:layout_marginTop="16dp"
                 android:text="Password"
                 android:textColor="#4E4D4D"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="24sp"
                 android:background="@drawable/rectangle"
                 android:hint="Enter password"
                 android:inputType="textPassword"
-                android:paddingHorizontal="10dp"
                 android:textSize="18sp"
+                app:boxStrokeWidth="0dp"
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/signInPassword"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
+                    android:paddingBottom="8dp"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="24sp"
+                android:layout_marginTop="16dp"
                 android:text="Confirm Password"
                 android:textColor="#4E4D4D"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="24sp"
                 android:background="@drawable/rectangle"
                 android:hint="Enter password"
                 android:inputType="textPassword"
                 android:paddingHorizontal="10dp"
                 android:textSize="18sp"
+                app:boxStrokeWidth="0dp"
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/signInPasswordTO"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
+                    android:paddingBottom="8dp"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -185,8 +192,6 @@
                     android:text="Sign Up"
                     android:textColor="@color/white"
                     android:textSize="22sp" />
-
-
             </androidx.cardview.widget.CardView>
 
         </androidx.appcompat.widget.LinearLayoutCompat>

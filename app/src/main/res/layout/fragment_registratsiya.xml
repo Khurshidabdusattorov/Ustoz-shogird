@@ -27,15 +27,15 @@
                 android:id="@+id/btn_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-               android:layout_margin="20dp"
+                android:layout_margin="20dp"
                 android:padding="8dp"
                 android:src="@drawable/ic_back" />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_marginBottom="5dp"
                 android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
                 android:src="@drawable/ustoz" />
 
             <TextView
@@ -58,50 +58,56 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:text="Name"
+                android:layout_marginStart="24sp"
+                android:layout_marginBottom="8dp"
+                android:text="Number"
                 android:textColor="#4E4D4D"
                 android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/number"
+            <com.arefbhrn.maskededittext.MaskedEditText
+                android:id="@+id/phone_input"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="24sp"
                 android:background="@drawable/rectangle"
-                android:hint="Enter user name"
-                android:paddingHorizontal="10dp"
-                android:textSize="18sp" />
-
+                android:hint="991234567"
+                android:inputType="phone"
+                android:paddingHorizontal="20dp"
+                android:textSize="18dp"
+                android:typeface="monospace"
+                app:allowed_chars="1234567890"
+                app:keep_hint="true"
+                app:mask="+998(##)###-##-##" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginVertical="8dp"
+                android:layout_marginStart="24sp"
                 android:text="Password"
                 android:textColor="#4E4D4D"
                 android:textSize="20sp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="24sp"
                 android:background="@drawable/rectangle"
                 android:hint="Enter password"
-                android:padding="5dp"
                 android:inputType="textPassword"
-                android:paddingHorizontal="10dp"
                 android:textSize="18sp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/password"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
-                    android:inputType="textPassword" />
+                    android:backgroundTint="@android:color/transparent"
+                    android:inputType="textPassword"
+                    android:paddingBottom="8dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -129,7 +135,7 @@
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/btn_SignIn"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
@@ -141,6 +147,7 @@
                 app:cardUseCompatPadding="true">
 
                 <TextView
+                    android:id="@+id/btn_SignIn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"

@@ -5,19 +5,17 @@ import com.example.ustozshogird.model.`interface`.RealtimeDBRepositoryInterface
 import com.example.ustozshogird.model.data.DoneTask
 import com.example.ustozshogird.model.data.Task
 import com.example.ustozshogird.model.data.User
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.channels.trySendBlocking
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.flow.flow
-import kotlin.coroutines.resume
-import kotlin.coroutines.suspendCoroutine
+import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 
 class RealtimeDBRepository : RealtimeDBRepositoryInterface {
     private val database = FirebaseDatabase.getInstance()
@@ -37,21 +35,44 @@ class RealtimeDBRepository : RealtimeDBRepositoryInterface {
         }
     }
 
-    override suspend fun signUp(user: User): Flow<Boolean> = callbackFlow {
+    override fun signUp(user: User): Flow<Boolean> = callbackFlow {
         users.child(user.number).setValue(user.password).addOnSuccessListener {
             trySendBlocking(true)
         }
         awaitClose()
     }
 
-    override suspend fun checkUser(user: User): Flow<Boolean> = callbackFlow {
-        users.child(user.number).get().addOnSuccessListener {
-            trySendBlocking(it.exists())
+    suspend fun sign(user: User) {
+        withContext(Dispatchers.IO) {
+            users.child(user.number).setValue(user).addOnSuccessListener {
+                Log.d("TTT", "sign: ")
+            }
         }
-        awaitClose()
     }
 
-    override suspend fun getTasks(id: String): Flow<List<Task>> = callbackFlow {
+    override fun checkUser(user: User): Flow<Boolean> = flow {
+
+//        users.child(user.number).get().addOnSuccessListener {
+//            if (!it.exists()) {
+//                trySendBlocking(false)
+//            } else {
+//                trySendBlocking(it.child("password").value.toString().equals(user.password))
+//            }
+//        }.addOnFailureListener {
+//
+//        }
+//        awaitClose()
+
+        emit(users.child(user.number).get().await().exists())
+
+    }
+
+    suspend fun check(user: User): Boolean {
+        val t = users.child(user.number).get().await().exists()
+        return t
+    }
+
+    override fun getTasks(id: String): Flow<List<Task>> = callbackFlow {
         tasks.child(id).get().addOnSuccessListener { tasks ->
             taskList.clear()
             for (task in tasks.children) {
@@ -62,7 +83,7 @@ class RealtimeDBRepository : RealtimeDBRepositoryInterface {
         awaitClose()
     }
 
-    override suspend fun getDoneTasks(id: String): Flow<List<DoneTask>> = callbackFlow {
+    override fun getDoneTasks(id: String): Flow<List<DoneTask>> = callbackFlow {
         doneTasks.child(id).get().addOnSuccessListener { tasks ->
             doneTaskList.clear()
             for (task in tasks.children) {
@@ -73,7 +94,7 @@ class RealtimeDBRepository : RealtimeDBRepositoryInterface {
         awaitClose()
     }
 
-    override suspend fun doneTask(task: DoneTask): Flow<Boolean> = callbackFlow {
+    override fun doneTask(task: DoneTask): Flow<Boolean> = callbackFlow {
         tasks.child(task.id).removeValue()
         doneTasks.child(task.id).setValue(task).addOnSuccessListener {
             trySendBlocking(true)
@@ -81,7 +102,7 @@ class RealtimeDBRepository : RealtimeDBRepositoryInterface {
         awaitClose()
     }
 }
-//suspend fun DatabaseReference.valueEventFlow(): Flow<Boolean> = callbackFlow {
+// fun DatabaseReference.valueEventFlow(): Flow<Boolean> = callbackFlow {
 //    val valueEventListener = object: ValueEventListener {
 //        override fun onDataChange(snapshot: DataSnapshot): Unit = sendBlocking(EventResponse.Changed(snapshot))
 //        override fun onCancelled(error: DatabaseError): Unit = sendBlocking(EventResponse.Cancelled(error))

@@ -5,6 +5,8 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import androidx.appcompat.widget.AppCompatButton
+import com.example.ustozshogird.R
 import com.example.ustozshogird.databinding.DialogTodoBinding
 
 class TodoDialog(ctx: Context) : Dialog(ctx) {
@@ -18,10 +20,12 @@ class TodoDialog(ctx: Context) : Dialog(ctx) {
         setContentView(binding.root)
 
         binding.btnDialogNo.setOnClickListener {
-
+            binding.btnDialogNo.findViewById<AppCompatButton>(R.id.btn_dialog_no)
         }
         binding.btnDialogYes.setOnClickListener {
-
+            binding.btnDialogYes.setOnClickListener {
+                binding.btnDialogYes.findViewById<AppCompatButton>(R.id.btn_dialog_yes)
+            }
         }
     }
 }

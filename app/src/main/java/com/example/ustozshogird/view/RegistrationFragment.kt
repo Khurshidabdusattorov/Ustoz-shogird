@@ -17,16 +17,20 @@ import com.example.ustozshogird.viewmodel.`interface`.RegistrationVMInterface
 class RegistrationFragment : Fragment() {
     private val viewModel: RegistrationVMInterface by viewModels<RegistrationViewModel>()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
         val binding = FragmentRegistratsiyaBinding.inflate(layoutInflater)
+
         viewModel.openMainList.observe(viewLifecycleOwner, openMainListObserver)
-        binding.btnSignIn.setOnClickListener { viewModel.signInClicked(binding.number.text.toString(), binding.password.text.toString()) }
+
+        binding.btnSignIn.setOnClickListener { viewModel.signInClicked(binding.phoneInput.rawText, binding.password.text.toString()) }
+
+        viewModel.messageLiveData.observe(viewLifecycleOwner) { showMessageObserver }
 
         binding.btnBack.setOnClickListener { findNavController().navigate(R.id.checkFragment) }
 
-        binding.signUp.setOnClickListener {
-            viewModel.signUpClicked(binding.number.text.toString(), binding.password.text.toString())
-//            findNavController().navigate(R.id.action_registratsiyaFragment_to_signUpFragment)
-        }
+        binding.signUp.setOnClickListener { viewModel.signUpClicked() }
+
+        viewModel.signUpLiveData.observe(viewLifecycleOwner, openSignUpObserver)
         return binding.root
     }
 
@@ -36,5 +40,9 @@ class RegistrationFragment : Fragment() {
 
     private val showMessageObserver = Observer<String> {
         Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+    }
+
+    private val openSignUpObserver = Observer<Unit> {
+        findNavController().navigate(R.id.action_registratsiyaFragment_to_signUpFragment)
     }
 }
